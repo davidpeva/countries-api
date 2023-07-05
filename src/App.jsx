@@ -1,13 +1,21 @@
-import "./app.scss";
+import "../src/scss/main.scss";
+import "bootstrap/dist/js/bootstrap.min.js";
 
-function App() {
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+
+import Header from "./layout/Header";
+import Home from "./views/Home";
+
+export default function App() {
   return (
-    <>
-      <div>
-        <div>HELLO I AM THE FIRST CONFIGURATION</div>
-      </div>
-    </>
+    <body>
+      <Router>
+        <Header />
+
+        <Routes>
+          <Route path="/" component={Home} />
+        </Routes>
+      </Router>
+    </body>
   );
 }
-
-export default App;

@@ -1,0 +1,20 @@
+// Breakpoints...
+$break-s: 375px;
+$break-l: 1440px;
+
+// Colors Palette...
+// Light Mode Text
+$primary: hsl(200, 15%, 8%);
+// Dark Mode Text & Light Mode Elements
+$secondary: hsl(0, 0%, 100%);
+// Dark Mode Elements
+$tertiary: hsl(209, 23%, 22%);
+// Light Mode Input
+$quaternary: hsl(0, 0%, 52%);
+// Light Mode Background
+$white: hsl(0, 0%, 98%);
+// Dark Mode Background
+$black: hsl(207, 26%, 17%);
+
+// Fonts
+$font-body: 'Nunito Sans', sans-serif;

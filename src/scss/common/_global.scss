@@ -1,0 +1,10 @@
+body {
+  @include body-font;
+  background: $white;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  min-height: calc(100vh - 89px);
+}
