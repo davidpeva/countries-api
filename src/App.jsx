@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
 import Header from "./layout/Header";
 import Home from "./views/Home";
+import SingleFlag from "./views/SingleFlag";
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
         <Header />
 
         <Routes>
-          <Route path="/" component={Home} />
+          <Route path="/" element={<Home />} />
+          <Route path="/single-flag/" element={<SingleFlag />} />
         </Routes>
       </Router>
     </body>
