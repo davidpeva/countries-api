@@ -1,23 +1,47 @@
 //ACA EN EL HOME LAS LETRAS DEBEN DE SER TAMAÑO 14
-import "../../src/scss/common/_variables.scss";
-import "../scss/sections/_header.scss";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon } from "@fortawesome/free-regular-svg-icons";
+import "../../src/scss/common/_variables.scss";
+import "../scss/sections/_home.scss";
+
+import HeroInput from "../components/home/HeroInput";
 
 export default function Header() {
   return (
-    <nav className="nav bg-secondary shadow-sm d-flex">
-      <div className="container d-flex align-items-center justify-content-between">
-        <a className="nav-link fw-bold" aria-current="page" href="#">
-          Where in the World?
+    <main className="home-flags container">
+
+      <HeroInput/>
+
+      {/* Dropdown */}
+      <div className="dropdown px-3">
+        <a
+          className="btn btn-secondary bg-secondary dropdown-toggle shadow-sm mt-3 mb-4 p-3 w-50 w-lg-25"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Filter by Region
         </a>
 
-        <a className="nav-link">
-          <FontAwesomeIcon icon={faMoon} className="me-2" />
-          Dark Mode
-        </a>
+        <ul className="dropdown-menu bg-secondary border-0" aria-labelledby="dropdownMenuLink">
+          <li>
+            <a className="dropdown-item" href="#">
+              Africa
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              America
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              Asia
+            </a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </main>
   );
 }
