@@ -8,19 +8,19 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
-    <div>
+    <div className="px-3" >
 
       {/* INPUT SEARCH */}
-      < div className="my-4 px-3" >
+      <div>
         <div className="input-group shadow-sm rounded">
           <span
-            className="bg-secondary border-0 input-group-text opacity-50 px-4"
+            className="bg-secondary border-0 input-group-text px-4"
             id="search-country"
           >
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="opacity-50"/>
           </span>
           <input
-            className="bg-secondary border-0 form-control opacity-50 py-3"
+            className="bg-secondary border-0 form-control py-3"
             placeholder="Search for a country..."
             aria-label="search"
             type="search"
