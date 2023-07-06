@@ -14,9 +14,12 @@ export default function App() {
         <Header />
 
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/single-flag/" element={<SingleFlag />} />
+
         </Routes>
+
       </Router>
     </body>
   );
