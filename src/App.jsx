@@ -9,7 +9,7 @@ import SingleFlag from "./views/SingleFlag";
 
 export default function App() {
   return (
-    <body>
+    <>
       <Router>
         <Header />
 
@@ -21,6 +21,6 @@ export default function App() {
         </Routes>
 
       </Router>
-    </body>
+    </>
   );
 }

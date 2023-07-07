@@ -5,8 +5,9 @@ import "../scss/sections/_home.scss";
 
 import HeroInput from "../components/home/HeroInput";
 import Dropdown from "../components/home/Dropdown";
+import Flags from "../components/home/Flags";
 
-export default function Header() {
+export default function Home() {
   return (
     <main className="home-flags container">
 
@@ -14,6 +15,8 @@ export default function Header() {
         <HeroInput />
         <Dropdown />
       </div>
+      <Flags />
+
 
 
     </main>
