@@ -1,9 +1,13 @@
-@media (min-width: $break-s) {
-    
-}
+@media (min-width: $break-s) {}
 
 
 
 @media (min-width: $break-l) {
-    
+
+    .flag-ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-column-gap: 3rem;
+        grid-row-gap: 3rem;
+    }
 }
