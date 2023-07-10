@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 // import { Link } from 'react-router-dom' ESTO LO DEBO DE USAR CUANDO YA PONG AEL SINGLE FLAG
+import "../../scss/sections/components/_flags.scss";
 
 import axios from 'axios'
 
@@ -9,7 +10,7 @@ export default function Flags() {
     const [item, setItem] = useState([])
 
 
-    //THIS ONE  IS TO CAL THE API THIS IS WHAT MAKE THE MAGIC HAPPEN
+    //THIS ONE  IS TO CALL THE API THIS IS WHAT MAKE THE MAGIC HAPPEN
     const getItems = async () => {
         try {
             const res = await axios.get('https://restcountries.com/v3.1/all')
@@ -26,45 +27,51 @@ export default function Flags() {
 
     return (
         <div className="px-3">
-            <ul className="ps-0" >
-                {
-                    //ACA USO CURRENTPOST.MAP Y NO ITEM.MAP PARA QUE SOLO ME ACOMODE LOS 30 CON ITEM.MAP ME ACOMODA LOS 200
-                    item.map(flag => (
-                        <li className="list-unstyled" key={flag.name.common}>
-                            {/* <Link to={`/flag/${flag.name.common}`}> */}
-                            <div className="">
-                                {
-                                    flag.flags.png
-                                        ?
-                                        <img className="" src={flag.flags.png} alt={flag.flags.alt} />
-                                        :
-                                        // <img className="" src={error} alt="error" /> ACA PONGO LA IMAGEN DE ERROR QUE TENIA EN EL OTRO O LA PAGINA DE ERROR
-                                        <img className="" alt="error" />
-                                }
+            <div className="mt-lg-5">
+                <ul className="flag-ul px-3 px-lg-0" >
+                    {
+                        //ACA USO CURRENTPOST.MAP Y NO ITEM.MAP PARA QUE SOLO ME ACOMODE LOS 30 CON ITEM.MAP ME ACOMODA LOS 200
+                        item.map(flag => (
+                            <li className="flag-li bg-secondary list-unstyled my-5 my-lg-0 rounded shadow-sm" key={flag.name.common}>
+                                {/* <Link to={`/flag/${flag.name.common}`}> */}
+                                <div className="">
+                                    <div className="rounded-top">
+                                        {
+                                            flag.flags.png
+                                                ?
+                                                <img className="flag-img rounded-top shadow-sm" src={flag.flags.png} alt={flag.flags.alt} />
+                                                :
+                                                // <img className="" src={error} alt="error" /> ACA PONGO LA IMAGEN DE ERROR QUE TENIA EN EL OTRO O LA PAGINA DE ERROR
+                                                <img className="flag-img shadow-sm" alt="error" />
+                                        }
 
-                            </div>
-                            <div className="">
-                                <div className="d-flex">
-                                    <div className="text-decoration-none">{flag.name.common}</div>
+                                    </div>
+                                    <div className="px-4 py-5">
+                                        <div className="d-flex">
+                                            <div className="fw-bolder text-decoration-none">{flag.name.common}</div>
+                                        </div>
+                                        <div className="d-flex">
+                                            <div className="general-info">Population:</div>
+                                            <div className="ms-1 text-decoration-none">{flag.population}</div>
+                                        </div>
+                                        <div className="d-flex">
+                                            <div className="general-info">Region:</div>
+                                            <div className="ms-1 text-decoration-none"> {flag.region}</div>
+                                        </div>
+                                        <div className="d-flex">
+                                            <div className="general-info">Capital:</div>
+                                            <div className="ms-1 text-decoration-none text-break"> {flag.capital}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="d-flex">
-                                    <div>Population:</div>
-                                    <div className="ms-1 text-decoration-none">{flag.population}</div>
-                                </div>
-                                <div className="d-flex">
-                                    <div>Region:</div>
-                                    <div className="ms-1 text-decoration-none"> {flag.region}</div>
-                                </div>
-                                <div className="d-flex">
-                                    <div>Capital:</div>
-                                    <div className="ms-1 text-decoration-none"> {flag.capital}</div>
-                                </div>
-                            </div>
-                            {/* </Link> */}
-                        </li>
-                    ))
-                }
-            </ul>
+
+                                {/* </Link> */}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
         </div>
     )
 }
