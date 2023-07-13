@@ -57,6 +57,7 @@ import { useEffect, useState } from 'react';
 import "../../scss/sections/components/_pagination.scss";
 
 export default function Pagination({ postsPerPage, totalPosts, paginate, currentPage, setCurrentPage }) {
+    //THIS SETS THE NUMBERS OF THE PAGES
     const [visiblePageNumbers, setVisiblePageNumbers] = useState([]);
 
     useEffect(() => {
@@ -108,5 +109,5 @@ Pagination.propTypes = {
     totalPosts: PropTypes.number.isRequired,
     paginate: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired,
-    setCurrentPage: PropTypes.func.isRequired,
+    setCurrentPage: PropTypes.func.isRequired
 };
