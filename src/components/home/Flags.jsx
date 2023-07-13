@@ -1,29 +1,31 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 import axios from "axios";
 import Pagination from "./Pagination";
 // import { Link } from 'react-router-dom' ESTO LO DEBO DE USAR CUANDO YA PONG AEL SINGLE FLAG
 
 import "../../scss/sections/components/_flags.scss";
 
-export default function Flags() {
+export default function Flags({ formText, region }) {
 
     //THIS HELP ME TO BRING THE FLAGS THE ORIGINAL CALL
-    const [item, setItem] = useState([])
+    const [item, setItem] = useState([]);
 
     //THIS IS TO CREATE A COPY FROM THE API THE GENERIC
-    const [filterItems, setFilterItems] = useState([])
+    const [filterItems, setFilterItems] = useState([]);
 
     //LOGIC FOR THE PAGINATION
-    const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage] = useState(20)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(20);
 
     //LOGICA PARA LA PAGINACION
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPage = indexOfLastPost - postsPerPage;
-    const currentPost = filterItems.slice(indexOfFirstPage, indexOfLastPost)
+    const currentPost = filterItems.slice(indexOfFirstPage, indexOfLastPost);
 
     //LOGICA PARA DAR CLICK SOBRE UN NUMERO Y QUE SE MUEVA
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     //CALL THE API THIS IS WHAT MAKE THE MAGIC HAPPEN
     const getItems = async () => {
@@ -34,11 +36,26 @@ export default function Flags() {
         } catch (error) {
             console.log("API Error", error);
         }
-    }
+    };
 
     useEffect(() => {
         getItems()
-    }, [])
+    }, []);
+
+    //THIS ACTIVE THE FORM INPUT
+    useEffect(() => {
+        const searcher = () => {
+            let data = item.filter((flag) => {
+                return (
+                    flag.name.common.toLowerCase().includes(formText.toLowerCase()) &&
+                    //THIS I FOR THE DROPDOWN
+                    (region === "" || flag.region.toLowerCase() === region.toLowerCase())
+                );
+            });
+            setFilterItems(data);
+        };
+        searcher();
+    }, [formText, region]);
 
     return (
         <div className="px-3">
@@ -87,10 +104,21 @@ export default function Flags() {
                 </ul>
 
                 <div className="pagination justify-content-center">
-                    <Pagination postsPerPage={postsPerPage} totalPosts={item.length} paginate={paginate} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                    <Pagination
+                        postsPerPage={postsPerPage}
+                        totalPosts={item.length}
+                        paginate={paginate}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
                 </div>
             </div>
 
         </div>
     )
+}
+
+Flags.propTypes = {
+    formText: PropTypes.string.isRequired,
+    region: PropTypes.string.isRequired
 }
