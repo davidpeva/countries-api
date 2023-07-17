@@ -64,7 +64,7 @@ export default function Flags({ formText, region }) {
                     {
                         //THE CALL WAS MADE TO THE COPY OF THE CALL
                         currentPost.map(flag => (
-                            <li className="flag-li bg-secondary list-unstyled my-5 my-lg-0 rounded shadow-sm" key={flag.name.common}>
+                            <li className="flag-li list-unstyled my-5 my-lg-0 rounded shadow-sm" key={flag.name.common}>
                                 {/* <Link to={`/flag/${flag.name.common}`}> */}
                                 <div className="">
                                     <div className="rounded-top d-flex">
