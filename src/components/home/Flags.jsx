@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import axios from "axios";
 import Pagination from "./Pagination";
-// import { Link } from 'react-router-dom' ESTO LO DEBO DE USAR CUANDO YA PONG AEL SINGLE FLAG
+import { Link } from 'react-router-dom'
 
 import "../../scss/sections/components/_flags.scss";
 
@@ -64,9 +64,9 @@ export default function Flags({ formText, region }) {
                     {
                         //THE CALL WAS MADE TO THE COPY OF THE CALL
                         currentPost.map(flag => (
-                            <li className="flag-li list-unstyled my-5 my-lg-0 rounded shadow-sm" key={flag.name.common}>
-                                {/* <Link to={`/flag/${flag.name.common}`}> */}
-                                <div className="">
+                            <li className="flag-back list-unstyled my-5 my-lg-0 rounded" key={flag.name.common}>
+                                <Link to={`/name/${flag.name.common}`} className="text-decoration-none">
+                                <div className="flag-li rounded">
                                     <div className="rounded-top d-flex">
                                         {
                                             flag.flags.png
@@ -97,7 +97,7 @@ export default function Flags({ formText, region }) {
                                     </div>
                                 </div>
 
-                                {/* </Link> */}
+                                </Link>
                             </li>
                         ))
                     }

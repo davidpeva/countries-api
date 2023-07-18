@@ -54,7 +54,9 @@
 
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+
 import "../../scss/sections/components/_pagination.scss";
+import "../../scss/common/_global.scss";
 
 export default function Pagination({ postsPerPage, totalPosts, paginate, currentPage, setCurrentPage }) {
     //THIS SETS THE NUMBERS OF THE PAGES
@@ -83,24 +85,24 @@ export default function Pagination({ postsPerPage, totalPosts, paginate, current
         <nav className="my-5">
             <ul className="pagination">
                 <li className="page-item">
-                    <button className="page-link p-3" aria-label="Previous" onClick={handlePreviousClick}>
+                    <button className="page-number page-link p-3" aria-label="Previous" onClick={handlePreviousClick}>
                         <span aria-hidden="true" className='p-3'>&laquo;</span>
                     </button>
                 </li>
                 {visiblePageNumbers.map((number) => (
                     <li key={number} className="page-item" path="true">
-                        <button onClick={() => paginate(number)} className={`page-link p-3 ${currentPage === number ? "active" : ""}`}>
+                        <button onClick={() => paginate(number)} className={`page-number page-link p-3 ${currentPage === number ? "active" : ""}`}>
                             {number}
                         </button>
                     </li>
                 ))}
                 <li className="page-item">
-                    <button className="page-link p-3" aria-label="Next" onClick={handleNextClick}>
+                    <button className="page-number page-link p-3" aria-label="Next" onClick={handleNextClick}>
                         <span aria-hidden="true">&raquo;</span>
                     </button>
                 </li>
             </ul>
-        </nav>
+        </nav> 
     );
 }
 
