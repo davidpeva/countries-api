@@ -19,9 +19,9 @@ export default function Dropdown({ handleRegion, getRegions }) {
         <div className="px-3">
 
             {/* DROPDOWN */}
-            <div className="dropdown mt-5 mt-lg-0">
+            <div className="box-shadow dropdown mt-5 mt-lg-0">
                 <a
-                    className="btn btn-secondary bg-secondary dropdown-toggle shadow-sm p-3"
+                    className="btn-region btn dropdown-toggle shadow-sm p-3"
                     href="#"
                     role="button"
                     id="dropdownMenuLink"
@@ -31,7 +31,7 @@ export default function Dropdown({ handleRegion, getRegions }) {
                     Filter by Region
                 </a>
 
-                <ul className="dropdown-menu bg-secondary border-0" aria-labelledby="dropdownMenuLink">
+                <ul className="btn-region dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
                     <li>
                         <a className="dropdown-item" href="#" onClick={() => handleClick("Africa")}>
                             Africa

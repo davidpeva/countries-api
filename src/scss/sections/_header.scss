@@ -1,5 +1,5 @@
-// @import "../common/mixins";
-// @import "../common/variables";
+@import "../common/mixins";
+@import "../common/variables";
 
 nav {
     height: 5rem;
@@ -17,10 +17,10 @@ nav {
 
 // #dark {
 
-//     // .nav-shadow {
-//     //     box-shadow: 0 0.125rem 0.25rem rgba(249, 249, 249, 0.075) !important;
-//     //     background-color: $tertiary;
-//     // }
+    // .nav-shadow {
+    //     box-shadow: 0 0.125rem 0.25rem rgba(249, 249, 249, 0.075) !important;
+    //     background-color: $tertiary;
+    // }
 
 //     .nav-link {
 //         color: $secondary;

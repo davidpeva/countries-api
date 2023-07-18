@@ -11,11 +11,118 @@ body {
   min-height: calc(100vh - 89px);
 }
 
-// #light  {
-//   background: $white;
-// }
+#light {
 
-#dark  {
+  //THIS IS FOR NAV
+  .nav-bckg {
+    box-shadow: $box-shadow-light;
+    background-color: $secondary;
+  }
+
+  //THIS IS FORM INPUT
+  .input-srch {
+    background-color: $secondary;
+  }
+
+  //THIS IS FOR THE DROPDOWN
+  .btn-region {
+    background-color: $secondary;
+  }
+
+  //THIS IS FLAGS
+  .flag-back {
+    background-color: $secondary;
+    box-shadow: $box-shadow-light;
+  }
+
+  // ul.pagination {
+  //   background-color: $secondarys;
+  // }
+
+  //THIS IS PAGINATION
+  li {
+
+    .page-number {
+      background-color: $secondary;
+      border: none;
+      box-shadow: $box-shadow-light;
+    }
+
+    .page-number.active {
+      background-color: $primary;
+      color: $secondary;
+      font-weight: bold;
+    }
+  }
+}
+
+#dark {
   background: $black;
   color: $secondary;
+
+  //THIS IS FOR NAV
+  .nav-bckg {
+    background-color: $tertiary;
+    box-shadow: $box-shadow-dark;
+  }
+
+  .nav-home {
+    color: $secondary;
+  }
+
+  //THIS IS FORM INPUT
+  .box-shadow {
+    box-shadow: $box-shadow-dark;
+  }
+
+  .input-srch {
+    background-color: $tertiary;
+    color: $secondary;
+  }
+
+  .input-srch::placeholder {
+    color: $secondary;
+  }
+
+  //THIS IS FOR THE DROPDOWN
+  .btn-region {
+    background-color: $tertiary;
+    color: $secondary;
+    border: none;
+    box-shadow: $box-shadow-dark;
+
+    a {
+      color: $secondary;
+    }
+  }
+
+  //THIS IS FLAGS
+  .flag-back {
+    background-color: $tertiary;
+    box-shadow: $box-shadow-dark;
+
+    .flag-li {
+      color: $secondary;
+    }
+  }
+
+  //THIS IS PAGINATION
+  .pagination {
+    box-shadow: $box-shadow-dark;
+  }
+
+  li {
+
+    .page-number {
+      background-color: $tertiary;
+      border: none;
+      color: $secondary;
+    }
+
+    .page-number.active {
+      background-color: $secondary;
+      color: $tertiary;
+      font-weight: bold;
+    }
+  }
 }
