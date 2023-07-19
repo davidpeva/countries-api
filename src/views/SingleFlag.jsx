@@ -32,13 +32,71 @@ export default function SingleFlag() {
     return <div>Loading...</div>; // Render a loading message while data is being fetched or if there's an error
   }
 
+  //CURRENCIES
+  //FIRST VERIFY IF INFO.CURRENCIES EXISTS
+  const currenciesNames =
+    //IF EXIST THEN THE METOHD IS APLLIED
+    info.currencies
+      //THEN
+      ?
+      Object.keys(info.currencies).map((currency) => info.currencies[currency].name)
+      //IF DO NOT EXISTS IS NULL
+      :
+      null;
+
+  //IF EXISTS THE JOIN METHOD IS APLIED IS IF NOT N/A IS WRITTEN
+  const currenciesNamesString = currenciesNames ? currenciesNames.join(', ') : 'N/A';
+
+  //TOP LEVEL DOMAIN
+  const topLevelDomain = Object.keys(info.tld).map(() => info.tld[0]);
+  const topLevelDomainString = topLevelDomain.join(', ');
+
+  //LANGUAGES
+  const languages =
+    info.languages
+      ?
+      Object.keys(info?.languages).map((lang) => info.languages[lang])
+      :
+      null;
+
+  const languagesStrings = languages ? languages.join(', ') : 'N/A';
+
+  //BORDER COUNTRIES
+  const bordersCountries =
+    info.borders
+      ?
+      Object.keys(info?.borders).map((border) => info.borders[border])
+      :
+      null;
+
+  // const bordersCountriesStrings = bordersCountries ? console.log(bordersCountries.join('-')) : 'N/A';
+
   return (
     <div>
       {/* THE ? IS A CONDITIONAL RENDERING IS LIKE AND IF SI LO ENCUENTRA LO MUESTRA SI NO || no aplica */}
-      <div>Name: {info?.name?.common || 'N/A'}</div>
-      <div>Capital: {info?.capital || 'N/A'}</div>
-      <div>Currencies: {info?.currencies ? Object.keys(info.currencies).join(', ') : 'N/A'}</div>
+      <div>Native Name: {info?.name?.common || 'N/A'}</div>
       <div>Population: {info?.population || 'N/A'}</div>
+      <div>Region: {info?.region || 'N/A'}</div>
+      <div>Sub Region: {info?.subregion || 'N/A'}</div>
+      <div>Capital: {info?.capital || 'N/A'}</div>
+      <div>Top Level Domain: {topLevelDomainString || 'N/A'}</div>
+      <div>Currencies: {currenciesNamesString}</div>
+      <div>Languages: {languagesStrings}</div>
+      <div>Border Countries:
+        {/* <div> */}
+          {
+            bordersCountries
+              ?
+              bordersCountries.map(border => (
+                <button key={border} className='mx-1'>
+                  {border}
+                </button>
+              ))
+              :
+              'N/A'
+          }
+        {/* </div> */}
+      </div>
     </div>
   );
 }
