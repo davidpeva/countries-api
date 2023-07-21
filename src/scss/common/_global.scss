@@ -24,7 +24,7 @@ body {
     background-color: $secondary;
   }
 
-  //THIS IS FOR THE DROPDOWN
+  //THIS IS FOR THE DROPDOWN AND BACK BUTTON
   .btn-region {
     background-color: $secondary;
   }
@@ -53,6 +53,18 @@ body {
       color: $secondary;
       font-weight: bold;
     }
+  }
+
+  //BACK BUTTON
+  .back-button {
+    background-color: $secondary;
+    box-shadow: $box-shadow-light;
+  }
+
+  //BORDERS AUX BUTTONS
+  .borders-buttons {
+    background-color: $secondary;
+    box-shadow: $box-shadow-light;
   }
 }
 
@@ -124,5 +136,19 @@ body {
       color: $tertiary;
       font-weight: bold;
     }
+  }
+
+  //BACK BUTTON
+  .back-button {
+    background-color: $tertiary;
+    box-shadow: $box-shadow-dark;
+    color: $secondary;
+  }
+
+  //BORDERS AUX BUTTONS
+  .borders-buttons {
+    background-color: $tertiary;
+    box-shadow: $box-shadow-dark;
+    color: $secondary;
   }
 }
