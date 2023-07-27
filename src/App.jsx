@@ -17,6 +17,8 @@ export const ThemeContext = createContext(null);
 export default function App({ formText }) {
   const [theme, setTheme] = useState("light");
 
+
+
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
@@ -30,7 +32,11 @@ export default function App({ formText }) {
           <Routes>
             <Route
               path="/"
-              element={<Home formText={formText} />} />
+              element={
+                <Home
+                  formText={formText}
+                />}
+            />
             <Route
               path="/name/:name"
               element={

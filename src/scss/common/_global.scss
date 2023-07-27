@@ -1,10 +1,12 @@
 @import "../common/mixins";
 @import "../common/variables";
+@import "../sections/responsive";
 
 body {
   @include body-font;
   margin: 0;
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 .wrap {
