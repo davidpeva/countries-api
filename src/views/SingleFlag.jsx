@@ -21,7 +21,9 @@ export default function SingleFlag() {
   // HELP ME TO THE DYNAMIC LINK
   const params = useParams();
 
+  //TO GO TO THE PAGE I WAS 
   const navigate = useNavigate();
+
   const goBack = () => {
     navigate(-1);
   }
