@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import axios from "axios";
 import Pagination from "./Pagination";
-import { Link } from 'react-router-dom'
 
 import "../../scss/sections/components/_flags.scss";
 
 export default function Flags({ formText, region }) {
+
+    const { page } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setCurrentPage(Number(page) || 1); // Set the current page based on the "page" parameter in the URL
+    }, [page]);
 
     //THIS HELP ME TO BRING THE FLAGS THE ORIGINAL CALL
     const [item, setItem] = useState([]);
@@ -24,8 +31,11 @@ export default function Flags({ formText, region }) {
     const indexOfFirstPage = indexOfLastPost - postsPerPage;
     const currentPost = filterItems.slice(indexOfFirstPage, indexOfLastPost);
 
-    //LOGICA PARA DAR CLICK SOBRE UN NUMERO Y QUE SE MUEVA
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+   // LOGICA PARA DAR CLICK SOBRE UN NUMERO Y QUE SE MUEVA
+   const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    navigate(`?page=${pageNumber}`); // Update the URL with the new page number
+};
 
     //CALL THE API THIS IS WHAT MAKE THE MAGIC HAPPEN
     const getItems = async () => {
@@ -66,36 +76,36 @@ export default function Flags({ formText, region }) {
                         currentPost.map(flag => (
                             <li className="flag-back list-unstyled my-5 my-lg-0 rounded" key={flag.name.common}>
                                 <Link to={`/name/${flag.name.common}`} className="text-decoration-none">
-                                <div className="flag-li rounded">
-                                    <div className="rounded-top d-flex">
-                                        {
-                                            flag.flags.png
-                                                ?
-                                                <img className="flag-img rounded-top shadow-sm" src={flag.flags.png} alt={flag.flags.alt} />
-                                                :
-                                                // <img className="" src={error} alt="error" /> ACA PONGO LA IMAGEN DE ERROR QUE TENIA EN EL OTRO O LA PAGINA DE ERROR
-                                                <img className="flag-img shadow-sm" alt="error" />
-                                        }
+                                    <div className="flag-li rounded">
+                                        <div className="rounded-top d-flex">
+                                            {
+                                                flag.flags.png
+                                                    ?
+                                                    <img className="flag-img rounded-top shadow-sm" src={flag.flags.png} alt={flag.flags.alt} />
+                                                    :
+                                                    // <img className="" src={error} alt="error" /> ACA PONGO LA IMAGEN DE ERROR QUE TENIA EN EL OTRO O LA PAGINA DE ERROR
+                                                    <img className="flag-img shadow-sm" alt="error" />
+                                            }
 
+                                        </div>
+                                        <div className="px-4 py-5">
+                                            <div className="d-flex">
+                                                <div className="fw-bolder text-decoration-none">{flag.name.common}</div>
+                                            </div>
+                                            <div className="d-flex">
+                                                <div className="general-info">Population:</div>
+                                                <div className="ms-1 text-decoration-none">{flag.population}</div>
+                                            </div>
+                                            <div className="d-flex">
+                                                <div className="general-info">Region:</div>
+                                                <div className="ms-1 text-decoration-none"> {flag.region}</div>
+                                            </div>
+                                            <div className="d-flex">
+                                                <div className="general-info">Capital:</div>
+                                                <div className="ms-1 text-decoration-none text-break"> {flag.capital}</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="px-4 py-5">
-                                        <div className="d-flex">
-                                            <div className="fw-bolder text-decoration-none">{flag.name.common}</div>
-                                        </div>
-                                        <div className="d-flex">
-                                            <div className="general-info">Population:</div>
-                                            <div className="ms-1 text-decoration-none">{flag.population}</div>
-                                        </div>
-                                        <div className="d-flex">
-                                            <div className="general-info">Region:</div>
-                                            <div className="ms-1 text-decoration-none"> {flag.region}</div>
-                                        </div>
-                                        <div className="d-flex">
-                                            <div className="general-info">Capital:</div>
-                                            <div className="ms-1 text-decoration-none text-break"> {flag.capital}</div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 </Link>
                             </li>
