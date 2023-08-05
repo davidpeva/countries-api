@@ -19,7 +19,7 @@ export default function Header() {
     <nav className="nav" id={theme}>
       <div className="nav-bckg d-flex w-100 ">
       <div className="container d-flex align-items-center justify-content-between">
-        <a className="nav-home nav-link fw-bold" aria-current="page" href="#">
+        <a className="nav-home nav-link fw-bold" aria-current="page" href="/">
           Where in the World?
         </a>
         <a
